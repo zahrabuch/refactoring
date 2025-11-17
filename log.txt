@@ -20,3 +20,15 @@ c762fed Task 2.1
 083ea06 Task 1.1
 2b4f164 (origin/main, origin/HEAD) fixed tests for the not-for-credit tasks; parameter ordering and ensuring consistent line endings.
 ff5004e adding shortcut keys for Inline Variable (Re: Piazza question)
+
+
+PS C:\Users\zahra\IdeaProjects\refactoring> git log --oneline
+2beff3a (HEAD -> main) Task 2.2
+7fca1b4 Task 2.1
+c762fed Task 2.1
+11f6cb6 Task 1.2
+083ea06 Task 1.1
+2b4f164 (origin/main, origin/HEAD) fixed tests for the not-for-credit tasks; parameter ordering and ensuring consistent line endings.
+:
+
+

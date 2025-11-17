@@ -10,6 +10,10 @@ import java.util.Map;
 public class StatementPrinter {
     private Invoice invoice;
     private Map<String, Play> plays;
+    public static final int HUNDRED = 100;
+    public static final int THOUSAND = 1000;
+    public static final int THIRTY = 30;
+    public static final int FORTYTHOUSAND = 40000;
 
     public StatementPrinter(Invoice invoice, Map<String, Play> plays) {
         this.invoice = invoice;
@@ -32,14 +36,8 @@ public class StatementPrinter {
     public String statement() {
         int totalAmount = 0;
         int volumeCredits = 0;
-        final int hundred = 100;
-        final int thousand = 1000;
-        final int thirty = 30;
-        final int fortythousand = 40000;
         final StringBuilder result = new StringBuilder(
                 "Statement for " + invoice.getCustomer() + System.lineSeparator());
-
-        final NumberFormat frmt = NumberFormat.getCurrencyInstance(Locale.US);
 
         for (Performance performance : invoice.getPerformances()) {
 
@@ -47,13 +45,19 @@ public class StatementPrinter {
             volumeCredits += getVolumeCredits(performance);
 
             // print line for this order
-            result.append(String.format("  %s: %s (%s seats)%n", getPlay(performance).getName(), frmt.format(
-                    getAmount(performance, fortythousand, thousand, thirty) / hundred), performance.getAudience()));
-            totalAmount += getAmount(performance, fortythousand, thousand, thirty);
+            result.append(String.format("  %s: %s (%s seats)%n", getPlay(performance).getName(), 
+                    usd(getAmount(performance)),
+                    performance.getAudience()));
+            totalAmount += getAmount(performance);
         }
-        result.append(String.format("Amount owed is %s%n", frmt.format(totalAmount / hundred)));
+        result.append(String.format("Amount owed is %s%n", usd(totalAmount)));
         result.append(String.format("You earned %s credits%n", volumeCredits));
         return result.toString();
+    }
+
+    private String usd(int totalAmount) {
+        return NumberFormat.getCurrencyInstance(Locale.US).format(
+                totalAmount / HUNDRED);
     }
 
     private int getVolumeCredits(Performance performance) {
@@ -71,13 +75,13 @@ public class StatementPrinter {
         return plays.get(performance.getPlayID());
     }
 
-    private int getAmount(Performance performance, int fortythousand, int thousand, int thirty) {
+    private int getAmount(Performance performance) {
         int result;
         switch (getPlay(performance).getType()) {
             case "tragedy":
-                result = fortythousand;
+                result = FORTYTHOUSAND;
                 if (performance.getAudience() > Constants.TRAGEDY_AUDIENCE_THRESHOLD) {
-                    result += thousand * (performance.getAudience() - thirty);
+                    result += THOUSAND * (performance.getAudience() - THIRTY);
                 }
                 break;
             case "comedy":
