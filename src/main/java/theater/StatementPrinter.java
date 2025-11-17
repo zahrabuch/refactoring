@@ -8,12 +8,12 @@ import java.util.Map;
  * This class generates a statement for a given invoice of performances.
  */
 public class StatementPrinter {
-    private Invoice invoice;
-    private Map<String, Play> plays;
+    public static final int THIRTY = 30;
     public static final int HUNDRED = 100;
     public static final int THOUSAND = 1000;
-    public static final int THIRTY = 30;
     public static final int FORTYTHOUSAND = 40000;
+    private Invoice invoice;
+    private Map<String, Play> plays;
 
     public StatementPrinter(Invoice invoice, Map<String, Play> plays) {
         this.invoice = invoice;
