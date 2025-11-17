@@ -40,3 +40,11 @@ c762fed Task 2.1
 11f6cb6 Task 1.2
 083ea06 Task 1.1
 
+39ba073 (HEAD -> main) Task 2.4
+e88c83f Task 2.3
+2beff3a Task 2.2
+7fca1b4 Task 2.1
+c762fed Task 2.1
+11f6cb6 Task 1.2
+:
+
