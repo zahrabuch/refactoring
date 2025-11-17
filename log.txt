@@ -4,3 +4,10 @@ ff5004e adding shortcut keys for Inline Variable (Re: Piazza question)
 b545fe2 clarifying extracted method names in README.md
 a0124c9 fixing starter file
 c8d9d38 adding starter files
+
+c762fed (HEAD -> main) Task 2.1
+11f6cb6 Task 1.2
+083ea06 Task 1.1
+2b4f164 (origin/main, origin/HEAD) fixed tests for the not-for-credit tasks; parameter ordering and ensuring consistent line endings.
+ff5004e adding shortcut keys for Inline Variable (Re: Piazza question)
+b545fe2 clarifying extracted method names in README.md
