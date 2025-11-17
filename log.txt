@@ -32,3 +32,11 @@ c762fed Task 2.1
 :
 
 
+PS C:\Users\zahra\IdeaProjects\refactoring> git log --oneline
+e88c83f (HEAD -> main) Task 2.3
+2beff3a Task 2.2
+7fca1b4 Task 2.1
+c762fed Task 2.1
+11f6cb6 Task 1.2
+083ea06 Task 1.1
+
